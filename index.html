@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,14 @@
             --text-muted: #666666;
         }
 
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
         /* Top Bar */
         .top-bar {
@@ -27,9 +35,24 @@
             align-items: center;
             font-size: 13px;
         }
-        .top-bar-info span { margin-right: 20px; }
-        .top-bar-links a { color: white; text-decoration: none; margin-left: 15px; }
-        .request-btn { background: var(--yellow); color: var(--navy) !important; padding: 6px 18px; border-radius: 4px; font-weight: bold; }
+
+        .top-bar-info span {
+            margin-right: 20px;
+        }
+
+        .top-bar-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .request-btn {
+            background: var(--yellow);
+            color: var(--navy) !important;
+            padding: 6px 18px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
 
         /* Navigation */
         nav {
@@ -41,16 +64,53 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .logo { display: flex; align-items: center; color: var(--yellow); font-weight: bold; font-size: 22px; text-transform: uppercase; text-decoration: none; }
-        .logo i { font-size: 32px; margin-right: 12px; }
-        .logo-subtext { color: var(--white); display: block; font-size: 10px; letter-spacing: 1px; }
 
-        .nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
-        .nav-links li { margin-left: 25px; }
-        .nav-links a { color: var(--white); text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--yellow); }
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--yellow);
+            font-weight: bold;
+            font-size: 22px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 32px;
+            margin-right: 12px;
+        }
+
+        .logo-subtext {
+            color: var(--white);
+            display: block;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
 
         /* Hero Section */
         .hero {
@@ -60,6 +120,7 @@
             padding: 120px 10% 180px;
             position: relative;
         }
+
         .est-tag {
             background: rgba(255, 204, 0, 0.1);
             border: 1px solid var(--yellow);
@@ -72,9 +133,24 @@
             margin-bottom: 35px;
             text-transform: uppercase;
         }
-        .hero h1 { font-size: 52px; margin: 0; line-height: 1.1; font-weight: 900; }
-        .hero h1 span { color: var(--yellow); }
-        .hero p { color: #cccccc; font-size: 19px; margin: 30px 0 45px; }
+
+        .hero h1 {
+            font-size: 52px;
+            margin: 0;
+            line-height: 1.1;
+            font-weight: 900;
+        }
+
+        .hero h1 span {
+            color: var(--yellow);
+        }
+
+        .hero p {
+            color: #cccccc;
+            font-size: 19px;
+            margin: 30px 0 45px;
+        }
+
         .catalog-btn {
             background-color: var(--yellow);
             color: var(--navy);
@@ -85,7 +161,11 @@
             display: inline-block;
             transition: 0.3s;
         }
-        .catalog-btn:hover { background-color: #e6b800; transform: scale(1.05); }
+
+        .catalog-btn:hover {
+            background-color: #e6b800;
+            transform: scale(1.05);
+        }
 
         /* Diagonal Divider */
         .hero::after {
@@ -100,55 +180,197 @@
         }
 
         /* Design & Planning Section */
-        .design-planning { padding: 80px 5%; background: #fff; }
-        .content-wrapper { display: flex; align-items: center; gap: 60px; max-width: 1200px; margin: auto; flex-wrap: wrap; }
-        .blueprint-img { flex: 1; min-width: 350px; }
-        .blueprint-img img { width: 100%; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .design-text { flex: 1; min-width: 350px; }
-        .design-text h3 { color: var(--navy); font-size: 32px; margin-bottom: 25px; }
-        .design-text p { color: var(--text-muted); margin-bottom: 30px; font-size: 16px; }
-        .services-list { list-style: none; padding: 0; }
-        .services-list li { margin-bottom: 15px; font-weight: 600; color: var(--navy); display: flex; align-items: center; }
-        .services-list i { color: var(--yellow); margin-right: 15px; font-size: 20px; }
+        .design-planning {
+            padding: 80px 5%;
+            background: #fff;
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        .blueprint-img {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .blueprint-img img {
+            width: 100%;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .design-text {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .design-text h3 {
+            color: var(--navy);
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+
+        .design-text p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .services-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .services-list li {
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+        }
+
+        .services-list i {
+            color: var(--yellow);
+            margin-right: 15px;
+            font-size: 20px;
+        }
 
         /* Industry Specialization Section */
-        .specialization { padding: 80px 5% 100px; background: var(--light-bg); text-align: center; }
-        .section-header h2 { font-size: 36px; color: var(--navy); margin-bottom: 10px; }
-        .yellow-divider { width: 80px; height: 4px; background: var(--yellow); margin: 0 auto 50px; }
-        
-        .spec-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; 
-            max-width: 1200px; 
-            margin: auto; 
-        }
-        .spec-card { 
-            background: white; 
-            padding: 30px 20px; 
-            border-radius: 12px; 
-            transition: 0.4s; 
-            border: 1px solid #efefef; 
+        .specialization {
+            padding: 80px 5% 100px;
+            background: var(--light-bg);
             text-align: center;
         }
-        .spec-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-color: var(--yellow); }
-        .spec-card img { width: 100%; height: 160px; object-fit: contain; margin-bottom: 20px; }
-        .spec-card h4 { color: var(--navy); font-size: 18px; margin: 15px 0; border-bottom: 2px solid var(--yellow); display: inline-block; padding-bottom: 5px; }
-        .spec-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-top: 10px; }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .yellow-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--yellow);
+            margin: 0 auto 50px;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .spec-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            transition: 0.4s;
+            border: 1px solid #efefef;
+            text-align: center;
+        }
+
+        .spec-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: var(--yellow);
+        }
+
+        .spec-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .spec-card h4 {
+            color: var(--navy);
+            font-size: 18px;
+            margin: 15px 0;
+            border-bottom: 2px solid var(--yellow);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .spec-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-top: 10px;
+        }
 
         /* Footer */
-        footer { background: #00152b; color: #888; padding: 40px 5%; text-align: center; border-top: 1px solid #112a45; font-size: 14px; }
+        footer {
+            background: #00152b;
+            color: #888;
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid #112a45;
+            font-size: 14px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
 
         /* Responsive Fixes */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .nav-links { display: none; } 
-            .top-bar { flex-direction: column; text-align: center; gap: 10px; }
-            .content-wrapper { flex-direction: column; text-align: center; }
-            .services-list li { justify-content: center; }
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .services-list li {
+                justify-content: center;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Top Info Bar -->
@@ -158,7 +380,6 @@
             <span><i class="fas fa-envelope"></i> info@snowmountain.com.my</span>
         </div>
         <div class="top-bar-links">
-            <a href="#"><i class="fas fa-user-circle"></i> Login / Signup</a>
             <a href="#" class="request-btn">Request Quote</a>
         </div>
     </div>
@@ -185,7 +406,7 @@
 
     <!-- Hero / Branding Section -->
     <section class="hero">
-        <div class="est-tag">✓ ESTABLISHED 1968</div>
+        <div class="est-tag">✓ ESTABLISHED 1997</div>
         <h1>SNOW MOUNTAIN:<br><span>THE PEAK OF KITCHEN PERFORMANCE</span></h1>
         <p>Complete end-to-end commercial kitchen design, fabrication, and installation.</p>
         <a href="#specialization" class="catalog-btn">Explore Our Catalog →</a>
@@ -195,11 +416,12 @@
     <section class="design-planning">
         <div class="content-wrapper">
             <div class="blueprint-img">
-                <img src="https://via.placeholder.com/600x400?text=CAD+Kitchen+Layout+Design" alt="Commercial Kitchen Planner">
+                <img src="images/kitchen-plan.png" alt="Commercial Kitchen Planner">
             </div>
             <div class="design-text">
                 <h3>Commercial Kitchen Layout Designer & Planner</h3>
-                <p>We specialise in providing comprehensive solutions for commercial kitchens, from initial CAD designing and planning to full project installation.</p>
+                <p>We specialise in providing comprehensive solutions for commercial kitchens, from initial CAD
+                    designing and planning to full project installation.</p>
                 <ul class="services-list">
                     <li><i class="fas fa-check-circle"></i> Tailored Kitchen Layout Designs</li>
                     <li><i class="fas fa-check-circle"></i> Custom Stainless Steel Fabrication</li>
@@ -210,13 +432,13 @@
         </div>
     </section>
 
- <!-- Equipment Specialization (Exact Filename Match) -->
+    <!-- Equipment Specialization (Exact Filename Match) -->
     <section class="specialization" id="specialization">
         <div class="section-header">
             <h2>Our Industry Specialization</h2>
             <div class="yellow-divider"></div>
         </div>
-        
+
         <div class="spec-grid">
             <!-- Dishwashing -->
             <div class="spec-card">
@@ -238,13 +460,15 @@
             </div>
             <!-- Custom Refrigeration -->
             <div class="spec-card">
-                <img src="images/Category-Images-@-FIC-Website-Custom-Made-Refrigeration.jpg" alt="Custom Refrigeration">
+                <img src="images/Category-Images-@-FIC-Website-Custom-Made-Refrigeration.jpg"
+                    alt="Custom Refrigeration">
                 <h4>Custom Refrigeration</h4>
                 <p>Custom Made Refrigeration, Front of the House Chiller, Pizza Counter.</p>
             </div>
             <!-- SS Fabrication -->
             <div class="spec-card">
-                <img src="images/Category-Images-@-FIC-Website-Food-Distribution-Holding-Equipment.jpg" alt="Specialized Fabrication">
+                <img src="images/Category-Images-@-FIC-Website-Food-Distribution-Holding-Equipment.jpg"
+                    alt="Specialized Fabrication">
                 <h4>SS Fabrication</h4>
                 <p>SS Cabinet, Pass Through Box, SS Air Shower, Stainless Steel Shoe Cabinet.</p>
             </div>
@@ -273,5 +497,10 @@
         &copy; 2026 Snow Mountain Kitchen Equipment. All Rights Reserved.
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/60377845678" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
+
 </html>
