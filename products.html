@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Snow Mountain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base styles matching index.html */
+        :root {
+            --navy: #001f3f;
+            --yellow: #ffcc00;
+            --white: #ffffff;
+            --light-bg: #f9f9f9;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --border-color: #eaeaea;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        /* Top Bar & Nav (copied from index) */
+        .top-bar {
+            background-color: #00152b;
+            color: var(--white);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .top-bar-info span { margin-right: 20px; }
+        .top-bar-links a { color: white; text-decoration: none; margin-left: 15px; }
+        .request-btn {
+            background: var(--yellow);
+            color: var(--navy) !important;
+            padding: 6px 18px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: var(--navy);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--yellow);
+            font-weight: bold;
+            font-size: 22px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .logo i { font-size: 32px; margin-right: 12px; }
+        .logo-subtext {
+            color: var(--white);
+            display: block;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--yellow); }
+
+        /* Page Layout */
+        .page-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 5%;
+            gap: 40px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+        
+        .category-accordion {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            padding: 15px 20px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: var(--navy);
+            transition: 0.2s;
+        }
+        .accordion-header:hover { background: #f0f0f0; }
+        .accordion-header i { font-size: 12px; transition: transform 0.3s; }
+        .accordion-item.active .accordion-header i { transform: rotate(180deg); }
+
+        .accordion-content {
+            display: none;
+            background: #fafafa;
+            padding: 10px 20px;
+        }
+        .accordion-item.active .accordion-content { display: block; }
+        
+        .accordion-content ul { list-style: none; padding: 0; margin: 0; }
+        .accordion-content li { margin-bottom: 10px; }
+        .accordion-content a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            transition: 0.2s;
+        }
+        .accordion-content a:hover, .accordion-content a.active {
+            color: var(--navy);
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+        .breadcrumb a { color: var(--text-muted); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--navy); }
+        .breadcrumb span { margin: 0 8px; }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-bar h1 {
+            font-size: 28px;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .search-box {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            background: white;
+        }
+        .search-box input {
+            border: none;
+            padding: 10px 15px;
+            outline: none;
+            width: 200px;
+            font-size: 14px;
+        }
+        .search-box button {
+            background: var(--navy);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .search-box button:hover { background: #003366; }
+
+        .sort-box select {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            outline: none;
+            font-size: 14px;
+            background: white;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--yellow);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--navy);
+            margin: 10px 0;
+            flex-grow: 1;
+        }
+
+        .view-more {
+            color: var(--text-muted);
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 15px;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .product-card:hover .view-more {
+            color: var(--navy);
+            font-weight: bold;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            position: relative;
+            text-align: center;
+            transform: translateY(20px);
+            transition: 0.3s;
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .modal-close:hover { color: var(--navy); }
+
+        .modal-img {
+            max-width: 100%;
+            height: 250px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 30px;
+        }
+
+        .enquire-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .enquire-btn:hover {
+            background: #1ebc59;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #00152b;
+            color: #888;
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid #112a45;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        @media (max-width: 900px) {
+            .page-container { flex-direction: column; }
+            .sidebar { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span><i class="fas fa-phone"></i> +60 3-7784 5678</span>
+            <span><i class="fas fa-envelope"></i> info@snowmountain.com.my</span>
+        </div>
+        <div class="top-bar-links">
+            <a href="#" class="request-btn">Request Quote</a>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <i class="fas fa-mountain"></i>
+            <div>
+                SNOW MOUNTAIN
+                <span class="logo-subtext">Kitchen Equipment</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="products.html" style="color: var(--yellow);">Products ▼</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Our Customers</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="category-accordion">
+                <div class="accordion-item active">
+                    <div class="accordion-header">
+                        Commercial Refrigeration <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><a href="#" class="active">Display Range</a></li>
+                            <li><a href="#">Chest Freezer</a></li>
+                            <li><a href="#">Island Freezer</a></li>
+                            <li><a href="#">Blast Freezer</a></li>
+                            <li><a href="#">Counter Series</a></li>
+                            <li><a href="#">Upright Series</a></li>
+                            <li><a href="#">Showcase Range</a></li>
+                            <li><a href="#">Others</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Stainless Steel Fabrication <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content"><ul><li><a href="#">View All</a></li></ul></div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Bakery Machinery <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content"><ul><li><a href="#">View All</a></li></ul></div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Electrical & Gas Cooking... <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content"><ul><li><a href="#">View All</a></li></ul></div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Commercial Industrial... <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content"><ul><li><a href="#">View All</a></li></ul></div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Food Service Equipment <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content"><ul><li><a href="#">View All</a></li></ul></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Product Area -->
+        <main class="main-content">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <span>&gt;</span>
+                <a href="products.html">Products</a> <span>&gt;</span>
+                Commercial Refrigeration
+            </div>
+
+            <div class="header-bar">
+                <h1>Commercial Refrigeration</h1>
+                <div class="controls">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search...">
+                        <button onclick="filterProducts()"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="sort-box">
+                        <select>
+                            <option>Latest</option>
+                            <option>A-Z</option>
+                            <option>Z-A</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be injected by JS -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <i class="fas fa-times modal-close" onclick="closeModal()"></i>
+            <img src="" alt="" class="modal-img" id="modalImg">
+            <h2 class="modal-title" id="modalTitle">Product Name</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">For pricing and more details, please contact us directly via WhatsApp.</p>
+            <a href="#" class="enquire-btn" id="modalBtn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Enquire Now
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Snow Mountain Kitchen Equipment. All Rights Reserved.
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/60377845678" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Accordion Logic
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Product Data
+        const products = [
+            { id: 1, title: '1 Door Display Chiller (250L)', img: 'images/Category-Images-@-FIC-Website-Refrigeration.jpg' },
+            { id: 2, title: 'Blast Freezer -5/-10 Food Pan (FP1/1-2.5)', img: 'images/Category-Images-@-FIC-Website-Refrigeration.jpg' },
+            { id: 3, title: '1/2/3 Door Display Chiller (400L)', img: 'images/Category-Images-@-FIC-Website-Refrigeration.jpg' },
+            { id: 4, title: '1 Door Display Chiller Static Cooling (Cooling with Fan - Black)', img: 'images/Category-Images-@-FIC-Website-Refrigeration.jpg' },
+            { id: 5, title: 'Bakery Island Freezer', img: 'images/Category-Images-@-FIC-Website-Refrigeration.jpg' },
+            { id: 6, title: 'Bakery Refrigerated Meat Display Case (Blower System)', img: 'images/Category-Images-@-FIC-Website-Refrigeration.jpg' },
+        ];
+
+        // Render Products
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            
+            if (items.length === 0) {
+                grid.innerHTML = '<p>No products found.</p>';
+                return;
+            }
+
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.onclick = () => openModal(product);
+                card.innerHTML = `
+                    <img src="${product.img}" alt="${product.title}" class="product-image">
+                    <div class="product-title">${product.title}</div>
+                    <div class="view-more">View More</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Search Filter
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.title.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        // Live search
+        document.getElementById('searchInput').addEventListener('input', filterProducts);
+
+        // Modal Logic
+        const modal = document.getElementById('productModal');
+        function openModal(product) {
+            document.getElementById('modalImg').src = product.img;
+            document.getElementById('modalTitle').textContent = product.title;
+            // Link to Whatsapp with pre-filled message
+            const message = encodeURIComponent(`Hi, I'm interested in the product: ${product.title}. Can I get more details?`);
+            document.getElementById('modalBtn').href = `https://wa.me/60377845678?text=${message}`;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Close on outside click
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Initial Render
+        renderProducts(products);
+    </script>
+</body>
+</html>
