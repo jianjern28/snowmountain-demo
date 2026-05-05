@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Customers | Snow Mountain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #001f3f;
+            --yellow: #ffcc00;
+            --white: #ffffff;
+            --light-bg: #f9f9f9;
+            --text-dark: #333333;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--navy);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--yellow);
+            font-weight: bold;
+            font-size: 22px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 32px;
+            margin-right: 12px;
+        }
+
+        .logo-subtext {
+            color: var(--white);
+            display: block;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--yellow);
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            margin: 0;
+            color: var(--yellow);
+        }
+
+        /* Customers Section */
+        .customers-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 5%;
+            text-align: center;
+        }
+
+        .customers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .customer-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #eaeaea;
+        }
+
+        .customer-card i {
+            font-size: 40px;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+        
+        .customer-card h4 {
+            color: var(--navy);
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background: #00152b;
+            color: #888;
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid #112a45;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <i class="fas fa-mountain"></i>
+            <div>
+                SNOW MOUNTAIN
+                <span class="logo-subtext">Kitchen Equipment</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products ▼</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="customers.html" style="color: var(--yellow);">Our Customers</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-header">
+        <h1>Our Trusted Partners</h1>
+        <p style="margin-top: 15px; font-size: 18px;">Proudly serving businesses across Ipoh and Perak</p>
+    </div>
+
+    <div class="customers-container">
+        <p style="color: var(--text-muted); font-size: 16px; max-width: 800px; margin: 0 auto;">We have had the privilege of equipping and supporting a wide variety of businesses, from local cafes and bakeries to large-scale restaurants and industrial catering facilities.</p>
+        
+        <div class="customers-grid">
+            <div class="customer-card">
+                <i class="fas fa-utensils"></i>
+                <h4>Local Restaurants</h4>
+            </div>
+            <div class="customer-card">
+                <i class="fas fa-coffee"></i>
+                <h4>Cafes & Bakeries</h4>
+            </div>
+            <div class="customer-card">
+                <i class="fas fa-hotel"></i>
+                <h4>Hotels & Resorts</h4>
+            </div>
+            <div class="customer-card">
+                <i class="fas fa-industry"></i>
+                <h4>Central Kitchens</h4>
+            </div>
+            <div class="customer-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h4>Institutions & Schools</h4>
+            </div>
+            <div class="customer-card">
+                <i class="fas fa-truck"></i>
+                <h4>Food Distributors</h4>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <div style="font-size: 16px; color: var(--yellow); font-weight: bold;">Specializing in Commercial Kitchen Solutions for Ipoh & Perak Area</div>
+            <div><i class="fas fa-map-marker-alt" style="color: var(--yellow); margin-right: 8px;"></i> Pt 22339, Kampung Pengkalan Pegoh, 31500 Lahat, Perak</div>
+            <div>
+                <span style="margin-right: 20px;"><i class="fas fa-phone" style="color: var(--yellow); margin-right: 8px;"></i> 012-505 3663</span>
+                <span><i class="fas fa-envelope" style="color: var(--yellow); margin-right: 8px;"></i> info@snowmountain.com.my</span>
+            </div>
+            <div style="margin-top: 20px; color: #666;">&copy; 2026 Snow Mountain Kitchen Equipment. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/60125053663" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>

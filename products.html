@@ -389,17 +389,6 @@
     </style>
 </head>
 <body>
-    <!-- Top Info Bar -->
-    <div class="top-bar">
-        <div class="top-bar-info">
-            <span><i class="fas fa-phone"></i> +60 3-7784 5678</span>
-            <span><i class="fas fa-envelope"></i> info@snowmountain.com.my</span>
-        </div>
-        <div class="top-bar-links">
-            <a href="#" class="request-btn">Request Quote</a>
-        </div>
-    </div>
-
     <!-- Main Navigation -->
     <nav>
         <a href="index.html" class="logo">
@@ -411,12 +400,12 @@
         </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="products.html" style="color: var(--yellow);">Products ▼</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Our Customers</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="customers.html">Our Customers</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
 
@@ -520,11 +509,19 @@
     </div>
 
     <footer>
-        &copy; 2026 Snow Mountain Kitchen Equipment. All Rights Reserved.
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <div style="font-size: 16px; color: var(--yellow); font-weight: bold;">Specializing in Commercial Kitchen Solutions for Ipoh & Perak Area</div>
+            <div><i class="fas fa-map-marker-alt" style="color: var(--yellow); margin-right: 8px;"></i> Pt 22339, Kampung Pengkalan Pegoh, 31500 Lahat, Perak</div>
+            <div>
+                <span style="margin-right: 20px;"><i class="fas fa-phone" style="color: var(--yellow); margin-right: 8px;"></i> 012-505 3663</span>
+                <span><i class="fas fa-envelope" style="color: var(--yellow); margin-right: 8px;"></i> info@snowmountain.com.my</span>
+            </div>
+            <div style="margin-top: 20px; color: #666;">&copy; 2026 Snow Mountain Kitchen Equipment. All Rights Reserved.</div>
+        </div>
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/60377845678" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/60125053663" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -587,7 +584,7 @@
             document.getElementById('modalTitle').textContent = product.title;
             // Link to Whatsapp with pre-filled message
             const message = encodeURIComponent(`Hi, I'm interested in the product: ${product.title}. Can I get more details?`);
-            document.getElementById('modalBtn').href = `https://wa.me/60377845678?text=${message}`;
+            document.getElementById('modalBtn').href = `https://wa.me/60125053663?text=${message}`;
             modal.classList.add('active');
         }
 
