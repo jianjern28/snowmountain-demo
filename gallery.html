@@ -175,6 +175,40 @@
             .nav-links { display: none; }
             .gallery-container { grid-template-columns: 1fr; }
         }
+    
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav {
+                flex-wrap: wrap;
+            }
+            ul.nav-links {
+                display: none !important;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--navy);
+                padding: 15px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+            ul.nav-links.active {
+                display: flex !important;
+            }
+            ul.nav-links li {
+                margin: 15px 0;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -187,8 +221,9 @@
                 SNOW MOUNTAIN
                 <span class="logo-subtext">Kitchen Equipment</span>
             </div>
-        </a>
-        <ul class="nav-links">
+                </a>
+        <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
+        <ul class="nav-links" id="navMenu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="products.html">Products ▼</a></li>
@@ -239,5 +274,10 @@
     <a href="https://wa.me/60125053663" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
